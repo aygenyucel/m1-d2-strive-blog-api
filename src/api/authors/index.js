@@ -50,7 +50,7 @@ authorsRouter.post("/", (req, res) => {
 //2. READ => GET http://localhost:3001/authors/ (+ optional query params)
 authorsRouter.get("/", (req, res) => {
   //2.1 => read the content of authors.json file, obtaining an array
-  const fileContent = fs.readFileSync(authorsJSONPath);
+  const fileContent = JSON.parse(fs.readFileSync(authorsJSONPath));
   console.log("fileContent:", fileContent);
   //2.2 => send it back as a response
   res.send(fileContent);
